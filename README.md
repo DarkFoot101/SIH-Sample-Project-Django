@@ -1,7 +1,10 @@
-Alumni Portal - Django Version 🎓
+__Alumini Networking Portal - Django-MVP Version__
+
+
 The Alumni Portal is a LinkedIn-inspired networking platform tailored for engineering colleges, designed to enhance alumni-student interaction, resume analysis, and career guidance. The project integrates cutting-edge AI, NLP, and RAG-based techniques to provide intelligent insights for users.
 
 🚀 Project Overview
+
 The portal is built using Django for backend development, with Streamlit handling the user interface for a seamless and interactive experience. The system enables users to analyze their resumes, compare skills, seek career advice, and utilize an AI-powered chatbot for queries.
 
 Key Implementations:
