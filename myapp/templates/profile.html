@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body text-center">
+            {% if alumni.profile_picture %}
+                <img src="{{ alumni.profile_picture.url }}" class="rounded-circle img-fluid" width="150" height="150">
+            {% else %}
+                <img src="/static/images/default-profile.png" class="rounded-circle img-fluid" width="150" height="150" alt="Default Profile">
+            {% endif %}
+            
+            <h2>{{ alumni.name }}</h2>
+            <h5>{{ alumni.department }} - Batch {{ alumni.batch }}</h5>
+            <p><strong>Skills:</strong> {{ alumni.skills }}</p>
+            <p><strong>Experience:</strong> {{ alumni.experience }}</p>
+
+            {% if alumni.linkedin_url %}
+                <a href="{{ alumni.linkedin_url }}" class="btn btn-primary" target="_blank">LinkedIn</a>
+            {% endif %}
+            {% if alumni.github_url %}
+                <a href="{{ alumni.github_url }}" class="btn btn-dark" target="_blank">GitHub</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

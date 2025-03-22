@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="text-center">Alumni Network</h2>
+    <div class="row">
+        {% for alumni in alumni_list %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img src="{% if alumni.profile_picture %}{{ alumni.profile_picture.url }}{% else %}{% static 'images/default_profile.png' %}{% endif %}" 
+                             class="rounded-circle mb-2" width="100" height="100">
+                        <h5>{{ alumni.name }}</h5>
+                        <p>{{ alumni.department }} - Batch {{ alumni.batch }}</p>
+                        <a href="{% url 'profile_with_id' alumni.id %}" class="btn btn-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center">No alumni profiles found.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- New Features -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Our Latest Technology Additon!</h2>
+
+    <!-- Resume Matcher -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body text-center">
+            <h3>Resume Matcher</h3>
+            <h4>An advanced NLP-powered resume matching system designed to evaluate your resume score and identify the top-performing resumes among alumni.</h4> 
+            <h4>Additionally, you can compare and analyze your resume against those of your peers to see how you stand out.</h4> 
+            <h5>Note: The highest score signifies the strongest resume. Best of luck!</h5>
+            <p>Upload your resume and see how it compares to the best resumes.</p>
+            <a href="http://trialapp-mo7vnv3cdlmxs9lhuupjhx.streamlit.app/" class="btn btn-info" target="_blank" rel = "noopener noreferrer">Try Resume Matcher</a>
+        </div>
+    </div>
+
+    <!-- AI Chatbot -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body text-center">
+            <h3>AI Chatbot</h3>
+            <h4>An AI-powered expert designed to assist students with queries across various fields. Feel free to ask anything!</h4> 
+            <p>Get guidance on careers, education, and opportunities tailored to your needs.</p>
+            <a href="https://chatbotsih-5fhplqbtsspxlyxemanmmw.streamlit.app/" class="btn btn-warning" target="_blank" rel="noopener noreferrer">Ask AI Chatbot</a>
+        </div>
+    </div>
+
+    <!-- Radar Plotting -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body text-center">
+            <h3>Skill Radar Plot</h3>
+            <h4>Curious about how your alumni excel? No worries!</h4> 
+            <h4>Our Radar-Plotting System enables you to visualize your skill proficiency by analyzing your recent scores and acquired expertise among your peers.</h4>
+            <h4>To ensure fairness, the system is specifically designed to align with your chosen field of interest.</h4> 
+            <p>Compare skillsets, track progress, and visualize your growth effectively.</p>
+            <a href="https://trialappgit-9fdwqhkxsm89zcwbtpw6pp.streamlit.app/" class="btn btn-success" target="_blank" rel="noopener noreferrer">Compare Skills</a>
+        </div>
+    </div>
+
+    <!-- PDF Analyzer Section -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card body text-center">
+            <div class="card-body">
+                <h3 class="card-title">PDF Analyzer Expert</h3>
+                <h4>Uncertain about what needs improvement? We've got you covered!</h4> 
+                <h5>Our advanced PDF Analyzer for resumes helps you analyze, identify areas for improvement, and provides insightful suggestions to enhance your resume. Get expert recommendations and answers to all your queries!</h5>
+                <p class="card-text">Analyze your resume and get insights on how to improve it.</p>
+                <a href="http://resumeanalyser-zrncmw3djin5dqqslxseks.streamlit.app/" target="_blank" class="btn btn-primary">
+                    Open PDF Analyzer
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Community Colleges news-->
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Community Colleges News</h2>
+          <p>1. Hackathon Announcement</p>
+           <p>Title: TechSprint 2025- 48-Hour Coding Challenge</p>
+            <p>Details: The Computer Science department is organizing a 48-hour Hackathon, inviting students from all branches to develop innovative solutions to real-world problems. Winners will receive internship opportunities, cash prizes, and certificates. Registration closes on April 15, 2025.
+            </p>
+          <p>2. Guest Lecture by Industry Expert</p>
+           <p>Title: AI & The Future of Autonomous Vehicles</p>
+            <p>Details: A distinguished guest lecture by Dr. Anil Kumar, Senior AI Scientist at Tesla, will take place on March 22, 2025. The talk will cover advancements in computer vision, neural networks, and real-time decision-making for autonomous cars. Open to all students. 
+            </p>
+           <p>3. Placement Success Story</p>
+            <p>Title: Record Placements for the Batch of 2025!</p>
+            <p>Details: The Training & Placement Cell announced record-breaking placements, with over 90% of students placed in top tech firms like Google, Microsoft, and Amazon. The highest package offered was ₹45 LPA for a Software Engineer role at a leading AI startup.
+            </p> 
+</div>
+
+<!-- Alumini Portal - Linkedin -Style Feed Section -->
+<div class="container mt-5">
+    <!-- Ecisisting posts -->
+    <div class="post mb-4 p-3 border rounded bg-white shadow-sm" style="max-width: 600px; margin: auto;">
+        <div class="post-header d-flex align-items-center">
+            <img class="rounded-circle me-2" width="50" height="50"
+                src = "https://th.bing.com/th/id/OIP.oeZ0czFEZJVvCtx5rSnGJQHaD2?w=325&h=180&c=7&r=0&o=5&pid=1.7"
+                alt="Profile">
+            <div>
+                <h4 class="m-0">Somanath Goudar</h4>
+                <small class="text-muted">25 February 2025</small>
+            </div>
+        </div>
+        <p class="post-text mt-2">Every small step we take, no matter how insignificant it seems, has the potential to shape the course of history. It is not the size of the action but the impact it leaves behind that defines true progress. A single spark can ignite a revolution, and a single idea can change the world. Courage, perseverance, and vision turn tiny steps into monumental leaps. Just as one step onto the moon became a symbol of boundless human potential, every effort we make toward growth and discovery carries the weight of possibility. The future belongs to those who dare to take it. </p>
+        <img src="https://th.bing.com/th/id/OIP.IGrfgkVAq0hsq8KVoSGkswHaEK?rs=1&pid=ImgDetMainalt="
+        alt = "ISRO Rocket" class="post-img img-fluid rounded mt-2">
+        <div class="post-actions mt-2 d-flex justify-content-between">
+            <button class="btn btn-outline-primary btn-sm">👍 Like</button>
+            <button class="btn btn-outline-secondary btn-sm">💬 Comment</button>
+            <button class="btn btn-outline-success btn-sm">🔄 Share</button>
+        </div>
+    </div>
+
+    <div class="post mb-4 p-3 border rounded bg-white shadow-sm" style="max-width: 600px; margin: auto;">
+        <div class="post-header d-flex align-items-center">
+            <img class="rounded-circle me-2" width="50" height="50" src="https://www.skillstork.org/blog/wp-content/uploads/2022/11/modern-education-Skillstork.jpg" alt="Profile">
+            <div>
+                <h4 class="m-0">Rajendra Prasad</h4>
+                <small class="text-muted">15 March 2025</small>
+            </div>
+        </div>
+    
+        <p class="post-text mt-2">Artificial Intelligence (AI) is revolutionizing the world by enabling machines to think, learn, and adapt like humans. It encompasses various fields, including machine learning, deep learning, natural language processing, and robotics. AI is transforming industries such as healthcare, finance, education, and automation, making processes more efficient and decision-making more precise.
+
+            From virtual assistants like Siri and Alexa to self-driving cars and intelligent chatbots, AI is reshaping the way we interact with technology. Its ability to analyze massive datasets, recognize patterns, and make predictions has unlocked endless possibilities. AI-powered algorithms drive recommendation systems, fraud detection, and even medical diagnoses.
+            
+            However, with great power comes responsibility. Ethical concerns, bias in AI models, and job automation pose challenges that must be addressed. The future of AI lies in creating transparent, fair, and human-centric systems. As AI continues to evolve, it holds the promise of solving complex global issues and enhancing human potential.</p>
+    
+        <img src="https://th.bing.com/th/id/OIP.hUDfYD_235jDzdobS-GEtgHaFO?rs=1&pid=ImgDetMain" alt="Post Image" class="post-img img-fluid rounded mt-2">
+    
+        <div class="post-actions mt-2 d-flex justify-content-between">
+            <button class="btn btn-outline-primary btn-sm">👍 Like</button>
+            <button class="btn btn-outline-secondary btn-sm">💬 Comment</button>
+            <button class="btn btn-outline-success btn-sm">🔄 Share</button>
+        </div>
+    </div>
+        
+
+    <h2 class = "text-center">Latest Posts</h2>
+    <div class="feed-container" style="max-height: 600px; overflow-y: auto;">
+        {% for post in posts %}
+        <div class="post mb-4 p-3 border rounded bg-white shadow-sm" style="max-width: 600px; margin: auto;">
+            <div class="post-header d-flex align-items-center">
+                <img src="https://randomuser.me/api/portraits/men/{{ forloop.counter }}.jpg" alt="Profile" 
+                     class="profile-pic rounded-circle me-2" width="50" height="50">
+                <div>
+                    <h4 class="m-0">{{ post.user.username }}</h4>
+                    <small class="text-muted">{{ post.created_at|date:"M d, Y H:i" }}</small>
+                </div>
+            </div>
+            <p class="post-text mt-2">{{ post.content }}</p>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Post Image" class="post-img img-fluid rounded mt-2">
+            {% endif %}
+            <div class="post-actions mt-2 d-flex justify-content-between">
+                <button class="btn btn-outline-primary btn-sm">👍 Like</button>
+                <button class="btn btn-outline-secondary btn-sm">💬 Comment</button>
+                <button class="btn btn-outline-success btn-sm">🔄 Share</button>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No posts yet. Be the first to post!</p>
+        {% endfor %}
+    </div>
+
+    <!-- Post Form -->
+    <div class="mt-4 p-3 border rounded bg-white shadow-sm" style="max-width: 600px; margin: auto;">
+        <h4>Create a Post</h4>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <textarea name="content" class="form-control mb-2" rows="3" placeholder="What's on your mind?" required></textarea>
+            <input type="file" name="image" class="form-control mb-2">
+            <button type="submit" class="btn btn-primary w-100">Post</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
